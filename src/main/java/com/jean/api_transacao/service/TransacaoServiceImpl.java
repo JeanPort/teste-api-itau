@@ -33,6 +33,13 @@ public class TransacaoServiceImpl implements ITransacaoService{
         this.transacoes.clear();
     }
 
+    @Override
+    public List<TransacaoDTO> findTransacao() {
+
+        var timeBefore = OffsetDateTime.now().minusMinutes(10);
+        return this.transacoes.stream().filter(dto -> dto.dataHora().isAfter(timeBefore)).toList();
+    }
+
     private void validateValor(TransacaoDTO dto) {
         if (dto.valor() < 0) {
             throw new ValorIncorretoException("Valor deve ser maior que zero");
