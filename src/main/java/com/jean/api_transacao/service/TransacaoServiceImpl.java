@@ -30,7 +30,7 @@ public class TransacaoServiceImpl implements ITransacaoService{
 
     @Override
     public void limpar() {
-
+        this.transacoes.clear();
     }
 
     private void validateValor(TransacaoDTO dto) {
