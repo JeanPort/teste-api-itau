@@ -33,6 +33,10 @@ public class TransacaoServiceImpl implements ITransacaoService{
         this.transacoes.clear();
     }
 
+    public List<TransacaoDTO> getTransacoes() {
+        return transacoes;
+    }
+
     @Override
     public List<TransacaoDTO> findTransacao() {
 
